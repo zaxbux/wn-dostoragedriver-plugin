@@ -1,0 +1,6 @@
+plugin:
+    name: 'zaxbux.dostoragedriver::lang.plugin.name'
+    description: 'zaxbux.dostoragedriver::lang.plugin.description'
+    author: 'Zachary Schneider'
+    icon: oc-icon-database
+    homepage: 'https://www.zacharyschneider.ca/'
