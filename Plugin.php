@@ -1,4 +1,4 @@
-<?php namespace Zaxbux\BackblazeB2StorageDriver;
+<?php namespace Zaxbux\DOStorageDriver;
 
 use Storage;
 use Aws\S3\S3Client;
