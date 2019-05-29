@@ -14,7 +14,7 @@ The plugin is configured in your October CMS `filesystems.php` and `cms.php`.
 
 Edit your `filesystems.php` to add a disk "backblaze" that uses the `do_spaces` driver:
 
-```
+```php
 return [
 
   ...
@@ -38,7 +38,7 @@ return [
 
 Edit your `cms.php` to configure the media manager to use your "digitalocean" disk:
 
-```
+```php
 return [
 
   ...
