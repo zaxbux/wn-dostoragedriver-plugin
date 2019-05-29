@@ -30,6 +30,7 @@ class Plugin extends PluginBase {
 								'key'    => $config['key'],
 								'secret' => $config['secret'],
 							],
+							'version' => 'latest',
 							'region' => $config['region'],
 							'endpoint' => 'https://'.$config['region'].'.digitaloceanspaces.com',
 						]);
