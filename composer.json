@@ -1,24 +1,24 @@
 {
-    "name": "zaxbux/oc-dostoragedriver-plugin",
+	"name": "zaxbux/oc-dostoragedriver-plugin",
 		"type": "october-plugin",
-    "description": "Provides a file system storage driver for DigitalOcean Spaces.",
-    "homepage": "https://github.com/zaxbux/oc-dostoragedriver-plugin",
-    "keywords": [
-        "october",
-        "octobercms",
-        "digitalocean",
-        "spaces",
-        "filesystem",
-        "driver"
-    ],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Zachary Schneider",
-            "email": "hello@zacharyschneider.ca"
-        }
-    ],
-    "require": {
+	"description": "Provides a file system storage driver for DigitalOcean Spaces.",
+	"homepage": "https://github.com/zaxbux/oc-dostoragedriver-plugin",
+	"keywords": [
+		"october",
+		"octobercms",
+		"digitalocean",
+		"spaces",
+		"filesystem",
+		"driver"
+	],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Zachary Schneider",
+			"email": "hello@zacharyschneider.ca"
+		}
+	],
+	"require": {
 			"php": ">=7.0"
 		}
 }

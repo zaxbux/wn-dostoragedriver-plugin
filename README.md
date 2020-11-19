@@ -17,19 +17,19 @@ Edit your `filesystems.php` to add a disk "backblaze" that uses the `do_spaces` 
 ```php
 return [
 
-  ...
+	...
 
-  'disks' => [
-    'digitalocean' => [
-      'driver' => 'do_spaces',
-      'key'    => 'XXXXXXXXXXXXXXXXXXXX',
-      'secret' => 'xxxXxXX+XxxxxXXxXxxxxxxXxxXXXXXXXxxxX9Xx',
-      'region' => '<space region>',
+	'disks' => [
+		'digitalocean' => [
+			'driver' => 'do_spaces',
+			'key'    => 'XXXXXXXXXXXXXXXXXXXX',
+			'secret' => 'xxxXxXX+XxxxxXXxXxxxxxxXxxXXXXXXXxxxX9Xx',
+			'region' => '<space region>',
 			'space'  => '<your space name>'
-    ],
-  ],
+		],
+	],
 
-  ...
+	...
 
 ];
 ```
@@ -41,17 +41,17 @@ Edit your `cms.php` to configure the media manager to use your "digitalocean" di
 ```php
 return [
 
-  ...
+	...
 
-  'storage' => [
-    'media' => [
-      'disk'   => 'digitalocean',
-      'folder' => '',
-      'path'   => 'https://<your space name>.<space region>.digitaloceanspaces.com/'
-    ],
-  ],
+	'storage' => [
+		'media' => [
+			'disk'   => 'digitalocean',
+			'folder' => '',
+			'path'   => 'https://<your space name>.<space region>.digitaloceanspaces.com/'
+		],
+	],
 
-  ...
+	...
 
 ];
 ```

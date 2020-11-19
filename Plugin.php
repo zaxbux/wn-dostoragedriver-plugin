@@ -19,13 +19,13 @@ class Plugin extends PluginBase {
 	 */
 	public $require = ['October.Drivers'];
 
-    /**
-     * {@inheritDoc}
-     */
-    public function boot() {
-        // Register the b2 storage driver
-        Storage::extend('do_spaces', function ($app, $config) {
-            $client = new S3Client([
+	/**
+	 * {@inheritDoc}
+	 */
+	public function boot() {
+		// Register the b2 storage driver
+		Storage::extend('do_spaces', function ($app, $config) {
+			$client = new S3Client([
 							'credentials' => [
 								'key'    => $config['key'],
 								'secret' => $config['secret'],
@@ -37,7 +37,7 @@ class Plugin extends PluginBase {
 
 						$adapter = new DigitalOceanSpacesAdapter($client, $config['space']);
 						
-            return new Filesystem($adapter);
-        });
-    }
+			return new Filesystem($adapter);
+		});
+	}
 }
