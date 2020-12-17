@@ -1,65 +1,25 @@
-# DigitalOcean Spaces Storage Driver
+# Deprecation Notice
 
-This October CMS plugin allows you to use DigitalOcean Spaces as a filesystem on your installation.
+> **Warning:** This plugin is no longer being maintained.
 
-## Requirements
+## Migration Steps
+Since October CMS is based on Laravel, the built-in S3 driver (from October.Drivers) completely replaces the functionality of this plugin. Edit your `filesystems.php` file like so:
+```
+'disks' => [
 
-To use DigitalOcean Spaces, you need to have a DigitalOcean account. You can get an account by signing up at [digitalocean.com](https://digitalocean.com). After creating a Space and Spaces Access Key, you will have access to your *Access Key ID* and *Secret Access Key* that lets you use the API. (https://developers.digitalocean.com/documentation/spaces/)
+	// ...
 
-## Plugin Settings
-
-The plugin is configured in your October CMS `filesystems.php` and `cms.php`.
-
-### filesystems.php
-
-Edit your `filesystems.php` to add a disk "backblaze" that uses the `do_spaces` driver:
-
-```php
-return [
-
-	...
-
-	'disks' => [
-		'digitalocean' => [
-			'driver' => 'do_spaces',
-			'key'    => 'XXXXXXXXXXXXXXXXXXXX',
-			'secret' => 'xxxXxXX+XxxxxXXxXxxxxxxXxxXXXXXXXxxxX9Xx',
-			'region' => '<space region>',
-			'space'  => '<your space name>'
-		],
+	's3' => [
+		'driver'     => 's3',                                   // Use the built-in S3 driver
+		'key'        => 'XXXXXXXXXXXXXXXXXXXX',                 // DigitalOcean API key
+		'secret'     => '0123456789abcdefghijklmnopqrstuvwxyz', // DigitalOcean API secret
+		'endpoint'   => 'https://xyz1.digitaloceanspaces.com',  // DigitalOcean spaces endpoint
+		'region'     => 'xyz1',                                 // Should match your endpoint
+		'bucket'     => 'assets',                               // Your bucket name
+		'visibility' => 'public',                               // Make uploads read-only for anonymous users
 	],
 
-	...
-
-];
+],
 ```
 
-### cms.php
-
-Edit your `cms.php` to configure the media manager to use your "digitalocean" disk:
-
-```php
-return [
-
-	...
-
-	'storage' => [
-		'media' => [
-			'disk'   => 'digitalocean',
-			'folder' => '',
-			'path'   => 'https://<your space name>.<space region>.digitaloceanspaces.com/'
-		],
-	],
-
-	...
-
-];
-```
-
-## Change Log
-
-* 1.0.1 - First version
-
-## TODO
-
-* All done!
+This configures October CMS to use it's own S3 driver to upload files to DigitalOcean spaces, marking them as public (using the **public-read** canned ACL). This change doesn't delete your uploads or make them inaccessable, and you can still upload files just like before.
